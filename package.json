@@ -1,0 +1,42 @@
+{
+  "name": "gogogo-market",
+  "version": "3.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Tienda de figuras de anime con estilo manga: React, Vite, DaisyUI y pagos con Mercado Pago",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "dev": "vite",
+    "server": "node server/server.js",
+    "dev:all": "concurrently -n web,api -c auto \"vite\" \"node --watch server/server.js\"",
+    "build": "vite build",
+    "build:demo": "vite build --mode demo && node scripts/finish-demo.js",
+    "start": "vite build && node server/server.js",
+    "preview": "vite preview",
+    "test": "npm run test:server && npm run test:front",
+    "test:server": "vite build && node test/server.test.js",
+    "test:front": "vitest run"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^16.0.1",
+    "@testing-library/user-event": "^14.5.2",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^9.1.0",
+    "daisyui": "4.12.24",
+    "jsdom": "^24.1.3",
+    "postcss": "^8.4.49",
+    "tailwindcss": "3.4.17",
+    "vite": "^5.4.11",
+    "vite-plugin-singlefile": "^2.0.3",
+    "vitest": "^2.1.8"
+  }
+}

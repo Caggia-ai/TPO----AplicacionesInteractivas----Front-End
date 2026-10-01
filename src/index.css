@@ -1,0 +1,173 @@
+/* Gogogo Market: Tailwind + DaisyUI + estilos manga. Vite lo compila solo (npm run dev / npm run build). */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   Tokens de tinta. DaisyUI pone los componentes; esto pone el manga.
+   ========================================================= */
+:root{
+  --ink:#000; --paper:#fff; --bw:3px;
+  --tone:radial-gradient(var(--ink) 1.2px,transparent 1.7px) 0 0/6px 6px,radial-gradient(var(--ink) 1.2px,transparent 1.7px) 3px 3px/6px 6px;
+  --font-d:'Dela Gothic One','Reggae One','Hiragino Sans','Yu Gothic',Impact,sans-serif;
+  --font-jp:'Dela Gothic One','Reggae One','Hiragino Sans','Yu Gothic',sans-serif;
+  --font-b:'Zen Kaku Gothic New','Hiragino Sans','Yu Gothic','Helvetica Neue',Arial,sans-serif;
+  --h2s:1;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+[data-theme="mangadark"]{--ink:#fff;--paper:#000}
+/* Ragnarok: pincel áspero, línea gruesa, trama gruesa */
+[data-saga="ragnarok"]{--bw:4px;--border-btn:4px;--font-d:'Reggae One','Dela Gothic One',Impact,sans-serif;--h2s:.8;
+  --tone:radial-gradient(var(--ink) 1.8px,transparent 2.4px) 0 0/8px 8px,radial-gradient(var(--ink) 1.8px,transparent 2.4px) 4px 4px/8px 8px}
+/* JoJo: línea fina y tramado cruzado */
+[data-saga="jojo"]{--bw:2px;--border-btn:2px;
+  --tone:repeating-linear-gradient(45deg,var(--ink) 0 1px,transparent 1px 5px),repeating-linear-gradient(-45deg,var(--ink) 0 1px,transparent 1px 5px)}
+
+html{scroll-padding-top:calc(76px + env(safe-area-inset-top,0px));scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{min-height:100vh}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.shot{border:var(--bw) solid var(--ink)}
+
+/* =========================================================
+   Ajustes de DaisyUI: cero grises, todo a tinta y papel
+   ========================================================= */
+.btn{font-family:var(--font-d);font-weight:400;letter-spacing:.02em;text-transform:none;line-height:1.1}
+.btn:active{transform:translate(2px,2px)}
+@media (hover:hover){.btn-primary:hover{background:var(--paper)!important;color:var(--ink)!important;border-color:var(--ink)!important}}
+.btn-primary:active{background:var(--paper)!important;color:var(--ink)!important}
+.btn-outline{background:var(--paper)}
+.btn:disabled,.btn[disabled]{background:var(--paper)!important;color:var(--ink)!important;border:var(--bw) dashed var(--ink)!important;opacity:.6}
+.input-bordered,.select-bordered{border:var(--bw) solid var(--ink)!important;background:var(--paper)}
+.input:focus,.input:focus-within,.select:focus{outline:3px solid var(--ink);outline-offset:2px}
+.tabs-boxed{border:var(--bw) solid var(--ink);background:var(--paper);padding:0;gap:0}
+.tabs-boxed .tab{font-family:var(--font-d);font-size:14px;height:2.75rem;border-radius:0!important;border-right:var(--bw) solid var(--ink)}
+.tabs-boxed .tab:last-child{border-right:0}
+.tabs-boxed .tab-active:not(.tab-disabled):not([disabled]){background:var(--ink)!important;color:var(--paper)!important}
+.toggle,.toggle:hover{position:relative;width:3.25rem;height:1.75rem;border:var(--bw) solid var(--ink)!important;border-radius:0;background:var(--paper)!important;box-shadow:none!important;color:var(--ink)}
+.toggle::before{content:"";position:absolute;top:50%;left:3px;width:1.05rem;height:1.05rem;margin-top:-.525rem;background:var(--ink);transition:transform .1s}
+.toggle:checked,.toggle:checked:hover{background:var(--ink)!important}
+.toggle:checked::before{transform:translateX(1.5rem);background:var(--paper)}
+.badge{font-weight:900;border:2px solid var(--ink)}
+.badge-outline{background:var(--paper);color:var(--ink)}
+.table tr{border-color:var(--ink)!important}
+.table :where(th,td){font-weight:700}
+.progress{border:2px solid var(--ink);background-color:var(--paper)}
+.progress::-webkit-progress-bar{background:transparent}
+.progress::-moz-progress-bar{background:var(--ink)}
+.progress::-webkit-progress-value{background:var(--ink)}
+.progress-primary{color:var(--ink)}
+.steps .step:before{background-color:var(--ink)!important;color:var(--ink)!important;height:.3rem}
+.steps .step:after{border:3px solid var(--ink);background-color:var(--paper);color:var(--ink);font-weight:900}
+.steps .step-primary:after{background-color:var(--ink)!important;color:var(--paper)!important}
+.step{font-family:var(--font-b)}
+.radio{border:var(--bw) solid var(--ink);background:var(--paper);color:var(--ink)}
+.radio:checked{background:var(--paper);border-color:var(--ink);box-shadow:inset 0 0 0 4px var(--paper),inset 0 0 0 20px var(--ink)}
+.rating input{background:var(--ink)}
+.rating input:checked~input,.rating input[aria-checked=true]~input{--tw-bg-opacity:1!important;background:var(--tone)!important}
+.modal{background:transparent}
+.modal::backdrop,.modal:not(dialog:not(.modal-open)){background:radial-gradient(#fff 1px,transparent 1.6px) 0 0/6px 6px,rgba(0,0,0,.86)!important}
+.modal-box{border:var(--bw) solid var(--ink);outline:2px solid var(--ink);outline-offset:4px;box-shadow:none;background:var(--paper)}
+.alert{box-shadow:none}
+@supports (height:100dvh){.modal-box{max-height:calc(100dvh - 2rem)}}
+.link{text-decoration:underline}
+input::placeholder,textarea::placeholder{color:var(--ink);opacity:1;font-style:italic;font-weight:500}
+.input[aria-invalid=true]{outline:3px solid var(--ink);outline-offset:2px;border-style:dashed!important}
+
+/* =========================================================
+   Viñetas de manga
+   ========================================================= */
+.pn{position:relative;background:var(--ink)}
+.pn::before{content:"";position:absolute;inset:0;background:var(--paper)}
+.pn.inv::before{background:var(--ink)}
+.pn>*{position:relative;z-index:1}
+.pn>.fx{position:absolute;z-index:0}
+.cut-b{clip-path:polygon(0 0,100% 0,100% calc(100% - 22px),0 100%)}
+.cut-b::before{clip-path:polygon(4px 4px,calc(100% - 4px) 4px,calc(100% - 4px) calc(100% - 26px),4px calc(100% - 4px))}
+.cut-t{clip-path:polygon(0 22px,100% 0,100% 100%,0 100%);margin-top:-12px}
+.cut-t::before{clip-path:polygon(4px 26px,calc(100% - 4px) 4px,calc(100% - 4px) calc(100% - 4px),4px calc(100% - 4px))}
+.fx{position:absolute;inset:0;pointer-events:none}
+.fx.speed{background:repeating-linear-gradient(8deg,var(--ink) 0 1px,transparent 1px 9px),repeating-linear-gradient(8deg,var(--ink) 0 2px,transparent 2px 23px) 0 5px;-webkit-mask-image:linear-gradient(100deg,transparent 45%,#000 95%);mask-image:linear-gradient(100deg,transparent 45%,#000 95%)}
+.fx.toneb{background:var(--tone);-webkit-mask-image:linear-gradient(20deg,#000,transparent 52%);mask-image:linear-gradient(20deg,#000,transparent 52%)}
+.fx.focus{background:repeating-conic-gradient(from 0deg at 100% 100%,var(--ink) 0 .5deg,transparent .5deg 3.4deg),repeating-conic-gradient(from 1deg at 100% 100%,var(--ink) 0 1deg,transparent 1deg 8deg);-webkit-mask-image:radial-gradient(circle at 100% 100%,transparent 22%,#000 92%);mask-image:radial-gradient(circle at 100% 100%,transparent 22%,#000 92%)}
+
+/* Portada */
+.pn.title{container-type:inline-size;padding:0}
+.tin{padding:26px 22px 40px;position:relative}
+.vsfx{position:absolute;top:14px;right:14px;z-index:2;writing-mode:vertical-rl;font-family:var(--font-jp);font-size:clamp(24px,6.5vw,46px);line-height:1;color:var(--ink);-webkit-text-stroke:5px var(--paper);paint-order:stroke fill;letter-spacing:.02em}
+.h1{font-family:var(--font-d);font-weight:400;margin:0 0 18px}
+.h1 span{display:block;width:fit-content;line-height:1.02;-webkit-text-stroke:6px var(--paper);paint-order:stroke fill;color:var(--ink)}
+.h1 .l1{font-size:clamp(30px,12vw,80px);font-size:13cqw}
+.h1 .l2{font-size:clamp(34px,14vw,92px);font-size:14.5cqw;color:var(--paper);-webkit-text-stroke:0;text-shadow:-3px -3px 0 var(--ink),3px -3px 0 var(--ink),-3px 3px 0 var(--ink),3px 3px 0 var(--ink),0 -3px 0 var(--ink),0 3px 0 var(--ink),-3px 0 0 var(--ink),3px 0 0 var(--ink);margin-left:.4em}
+.h1 .l3{font-size:clamp(22px,8vw,52px);font-size:8.6cqw}
+[data-saga="ragnarok"] .h1 span{filter:url(#rough)}
+.narr{position:relative;border:var(--bw) solid var(--ink);background:var(--paper);padding:10px 14px;font-weight:700;max-width:34ch;margin-bottom:18px}
+.pn.figpn{padding:4px}
+.bubble{position:absolute!important;left:16px;top:22px;z-index:4;background:var(--paper);color:var(--ink);border:3px solid var(--ink);border-radius:50%/55%;padding:12px 22px;font:900 18px/1.1 var(--font-b);text-align:center}
+.bubble::after{content:"";position:absolute;left:34px;bottom:-14px;width:18px;height:18px;background:var(--paper);border-right:3px solid var(--ink);border-bottom:3px solid var(--ink);transform:rotate(40deg) skew(12deg,12deg)}
+.pn.figpn>.hero-art{aspect-ratio:1/1}
+.hero-art .sfx{font-size:38px}
+@media(min-width:900px){
+  .page{display:grid;grid-template-columns:1.35fr 1fr}
+  .cut-b{clip-path:polygon(0 0,100% 0,calc(100% - 26px) 100%,0 100%)}
+  .cut-b::before{clip-path:polygon(4px 4px,calc(100% - 4px) 4px,calc(100% - 30px) calc(100% - 4px),4px calc(100% - 4px))}
+  .cut-t{clip-path:polygon(26px 0,100% 0,100% 100%,0 100%);margin-top:0;margin-left:-16px}
+  .cut-t::before{clip-path:polygon(30px 4px,calc(100% - 4px) 4px,calc(100% - 4px) calc(100% - 4px),4px calc(100% - 4px))}
+  .tin{padding:36px 40px 40px 34px}
+  .pn.figpn{min-height:440px}
+  .pn.figpn>.hero-art{position:absolute;inset:4px;aspect-ratio:auto}
+}
+
+.sec-h{font-family:var(--font-d);font-weight:400;font-size:calc(var(--h2s)*clamp(28px,7vw,46px));line-height:1.05;margin-bottom:18px;display:flex;align-items:flex-end;gap:14px}
+.sec-h::after{content:"";flex:1;min-width:24px;height:20px;background:var(--tone);-webkit-mask-image:linear-gradient(90deg,#000,transparent);mask-image:linear-gradient(90deg,#000,transparent)}
+
+/* =========================================================
+   Arte de las figuras (siluetas entintadas)
+   ========================================================= */
+.art{--ai:var(--ink);--ap:var(--paper);position:relative;display:block;aspect-ratio:5/6;overflow:hidden;background:var(--ap);color:var(--ai)}
+.art.bg-ink{--ai:var(--paper);--ap:var(--ink)}
+.art::before,.art::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none}
+.art .fig{position:absolute;inset:0;width:100%;height:100%;z-index:1}
+.art .halo{filter:url(#halo-p)}
+.art.bg-ink .halo{filter:url(#halo-i)}
+.art .f0{fill:var(--ai);stroke:var(--ai)}
+.art .f1{fill:url(#tone-p);stroke:url(#tone-p)}
+.art.bg-ink .f1{fill:url(#tone-i);stroke:url(#tone-i)}
+.bg-focus::before,.bg-ink::before{background:repeating-conic-gradient(from 0deg at 50% 54%,var(--ai) 0 .45deg,transparent .45deg 3.1deg),repeating-conic-gradient(from 1.2deg at 50% 54%,var(--ai) 0 .9deg,transparent .9deg 7.3deg);-webkit-mask-image:radial-gradient(circle at 50% 54%,transparent 26%,#000 76%);mask-image:radial-gradient(circle at 50% 54%,transparent 26%,#000 76%)}
+.bg-speed::before{background:repeating-linear-gradient(0deg,var(--ai) 0 1px,transparent 1px 6px),repeating-linear-gradient(0deg,var(--ai) 0 2px,transparent 2px 17px) 0 3px;-webkit-mask-image:linear-gradient(90deg,#000,transparent 36%,transparent 64%,#000);mask-image:linear-gradient(90deg,#000,transparent 36%,transparent 64%,#000)}
+.bg-tone::before{background:radial-gradient(var(--ai) 1.2px,transparent 1.7px) 0 0/6px 6px,radial-gradient(var(--ai) 1.2px,transparent 1.7px) 3px 3px/6px 6px;-webkit-mask-image:linear-gradient(0deg,#000 5%,transparent 90%);mask-image:linear-gradient(0deg,#000 5%,transparent 90%)}
+[data-saga="jojo"] .bg-tone::before{background:repeating-linear-gradient(45deg,var(--ai) 0 1px,transparent 1px 5px),repeating-linear-gradient(-45deg,var(--ai) 0 1px,transparent 1px 5px)}
+[data-saga="ragnarok"] .art:not(.bg-ink)::after{background:radial-gradient(circle at 50% 54%,transparent 56%,var(--ai) 128%);opacity:.9}
+.sfx{position:absolute;z-index:2;top:8px;right:8px;font-family:var(--font-jp);font-size:20px;line-height:1;color:var(--ai);-webkit-text-stroke:5px var(--ap);paint-order:stroke fill;transform:rotate(-6deg);letter-spacing:.02em}
+.art.mini .sfx{display:none}
+
+/* Tarjetas */
+.thumb{position:relative;display:block;width:100%;padding:0;border:0;border-bottom:var(--bw) solid var(--ink);background:none;cursor:pointer}
+.thumb:hover .art{outline:3px solid var(--ink);outline-offset:-6px}
+.sold{position:absolute;inset:0;z-index:5;display:grid;place-items:center;background:repeating-linear-gradient(45deg,var(--ink) 0 1px,transparent 1px 5px),repeating-linear-gradient(-45deg,var(--ink) 0 1px,transparent 1px 5px),var(--paper)}
+.sold b{font-family:var(--font-d);font-weight:400;font-size:26px;background:var(--paper);color:var(--ink);border:var(--bw) solid var(--ink);padding:4px 14px;transform:rotate(-8deg)}
+.price{font-family:var(--font-d);font-size:20px;line-height:1.2;border-bottom:var(--bw) solid var(--ink)}
+.radar{width:100%;max-width:420px;display:block;margin:0 auto;color:var(--ink)}
+
+/* Cómo comprar */
+.panel{position:relative;border:var(--bw) solid var(--ink);padding:20px;overflow:hidden;background:var(--paper);min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;gap:10px}
+.panel .n{font-family:var(--font-d);font-size:74px;line-height:.85;color:var(--paper);-webkit-text-stroke:3px var(--ink);paint-order:stroke fill;position:relative}
+.panel .tx{position:relative;background:var(--paper);color:var(--ink);border:2px solid var(--ink);padding:8px 12px;max-width:30ch}
+.panel .tx h3{font-family:var(--font-d);font-weight:400;font-size:calc(24px*var(--h2s));margin-bottom:4px}
+.panel .tx p{font-weight:700}
+.panel.p3{background:var(--ink)}
+.panel.p3 .n{color:var(--ink);-webkit-text-stroke:3px var(--paper)}
+.panel.p3 .tx{background:var(--ink);color:var(--paper);border-color:var(--paper)}
+.tsu{font-family:var(--font-jp);font-size:clamp(40px,12vw,84px);line-height:1}
+
+@keyframes jit{0%{transform:translate(0,0)}25%{transform:translate(1.5px,-1px)}50%{transform:translate(-1px,1.5px)}75%{transform:translate(-1.5px,-1px)}100%{transform:translate(1px,1px)}}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.16)}100%{transform:scale(1)}}
+.jit{animation:jit .22s steps(2) infinite}
+[data-saga="jojo"] .jit{animation-duration:.13s}
+.bump{animation:bump .3s}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .jit,.bump{animation:none}
+}
