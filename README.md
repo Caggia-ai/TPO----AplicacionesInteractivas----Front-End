@@ -2,6 +2,10 @@
 
 Tienda de figuras de anime con estilo manga (blanco y negro), hecha con **React + Vite**, **Tailwind + DaisyUI** y un servidor **Node/Express** que cobra con **Mercado Pago**. Es un proyecto de demostración: los precios, el stock y el alias son inventados.
 
+## Por qué "Gogogo"
+
+El nombre viene de "ゴゴゴ" (gogogo), una onomatopeya del manga que no tiene traducción literal: representa un sonido grave y retumbante que se dibuja en letras grandes detrás de un personaje para transmitir tensión o presencia imponente, sin que pase nada visible todavía. Se hizo muy famosa por JoJo's Bizarre Adventure, una de las obras en las que se inspira el catálogo. Se eligió ese nombre porque transmite esa misma intensidad que se buscó en la estética del sitio (tipografía japonesa, líneas de velocidad, blanco y negro de manga) y de paso funciona como juego de palabras con "go-go-go" en inglés.
+
 ## Versión demo (un solo archivo, sin instalar nada)
 
 `gogogo-market-demo.html` se abre con doble clic en cualquier navegador. Los pagos son **simulados** dentro de la página: no se cobra nada, no hay servidor ni conexión con Mercado Pago. Sirve para ver y probar todo el recorrido de compra:
