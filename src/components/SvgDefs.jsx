@@ -1,6 +1,6 @@
 /* Siluetas, tramas y filtros de tinta que comparten todas las figuras.
    Se dibuja UNA sola vez en la página; el resto de los SVG los usan con <use href="#pose-a"> y compañía. */
-export default function SvgDefs() {
+export function SvgDefs() {
   return (
     <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden="true" focusable="false">
       <defs>
