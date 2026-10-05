@@ -8,7 +8,7 @@ import { errMsg } from '../lib/format.js';
 import { brickStyle, getConfig, loadSDK } from '../lib/mercadopago.js';
 import { AlertBox } from './parts.jsx';
 
-export default function CardPanel({ amount, email, onSubmit, onReady }) {
+export function CardPanel({ amount, email, onSubmit, onReady }) {
   // siempre se llama a la versión más nueva de los manejadores, sin volver a montar el formulario
   const submitRef = useRef(onSubmit);
   const readyRef = useRef(onReady);
