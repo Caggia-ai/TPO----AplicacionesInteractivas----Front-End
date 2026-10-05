@@ -24,7 +24,7 @@ function Field({ label, className = '', children }) {
   );
 }
 
-export default function DemoCardForm({ amount, email, onSubmit, onReady }) {
+export function DemoCardForm({ amount, email, onSubmit, onReady }) {
   const [v, setV] = useState(EMPTY);
   const [err, setErr] = useState('');
   const [busy, setBusy] = useState(false);
