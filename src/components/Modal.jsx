@@ -11,7 +11,7 @@ const subscribe = (l) => { listeners.add(l); return () => listeners.delete(l); }
 export const useTopLayerHost = () =>
   useSyncExternalStore(subscribe, () => stack[stack.length - 1] || null, () => null);
 
-export default function Modal({ open, onClose, label, boxClass = '', children }) {
+export function Modal({ open, onClose, label, boxClass = '', children }) {
   const ref = useRef(null);
 
   useEffect(() => {
