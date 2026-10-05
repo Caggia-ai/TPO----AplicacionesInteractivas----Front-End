@@ -1,6 +1,6 @@
 /* Ilustración de una figura: silueta entintada sobre un fondo de manga (enfoque, velocidad, trama o negro).
    Las siluetas están definidas una sola vez en <SvgDefs /> y acá solo se referencian. */
-export default function FigureArt({ pose, bg, sfx, className = '' }) {
+export function FigureArt({ pose, bg, sfx, className = '' }) {
   return (
     <span className={`art bg-${bg} ${className}`.trim()}>
       <svg className="fig" viewBox="0 0 200 240" aria-hidden="true" focusable="false">
