@@ -1,4 +1,4 @@
-export default function Footer() {
+export function Footer() {
   return (
     <footer className="footer footer-center mt-12 bg-base-content text-base-100 p-8 gap-3">
       <div className="tsu" aria-hidden="true">つづく…</div>
