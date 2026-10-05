@@ -1,5 +1,5 @@
 /* Sección "Cómo comprar": tres viñetas numeradas */
-export default function HowTo() {
+export function HowTo() {
   return (
     <section className="mx-auto max-w-[1100px] px-4 pt-10 pb-2" id="como" aria-labelledby="t-como">
       <h2 className="sec-h" id="t-como">Cómo comprar</h2>
