@@ -1,7 +1,7 @@
 /* Portada en dos viñetas: título con líneas de velocidad y figura en negativo con líneas de enfoque */
 import FigureArt from './FigureArt.jsx';
 
-export default function Hero() {
+export function Hero() {
   return (
     <section className="mx-auto max-w-[1100px] px-4 pt-6 pb-1" aria-labelledby="h1">
       <div className="page flex flex-col">
