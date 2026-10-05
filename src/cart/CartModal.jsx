@@ -9,7 +9,7 @@ import ResultStep from './ResultStep.jsx';
 
 const RESULTS = ['ok', 'pending', 'fail'];
 
-export default function CartModal({ open, view, order, setView, onClose, onRedirect, onResult }) {
+export function CartModal({ open, view, order, setView, onClose, onRedirect, onResult }) {
   const { lines } = useStore();
   const [buyer, setBuyer] = useState({});
   const [method, setMethod] = useState('mp');
