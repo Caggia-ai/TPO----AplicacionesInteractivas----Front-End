@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useStore } from '../context/StoreContext.jsx';
 
-export default function Header({ onOpenCart }) {
+export function Header({ onOpenCart }) {
   const { count, theme, setTheme, ink, setInk, addTick } = useStore();
   const [bump, setBump] = useState(false);
 
