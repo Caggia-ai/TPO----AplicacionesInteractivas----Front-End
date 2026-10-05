@@ -9,7 +9,7 @@ import { errMsg, isTaken, METHODS, payMsg, save } from '../lib/format.js';
 import CardPanel from './CardPanel.jsx';
 import { AlertBox, BusyLabel, Steps, Summary } from './parts.jsx';
 
-export default function PayStep({ buyer, method, setMethod, onClose, onBack, onRedirect, onResult }) {
+export function PayStep({ buyer, method, setMethod, onClose, onBack, onRedirect, onResult }) {
   const { itemsPayload, finalize, total } = useStore();
   const [err, setErr] = useState('');
   const [busy, setBusy] = useState(false);
