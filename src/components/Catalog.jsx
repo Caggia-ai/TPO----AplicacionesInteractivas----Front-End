@@ -13,7 +13,7 @@ const TABS = [
 ];
 const INITIAL = { saga: 'all', q: '', price: 'all', sort: 'rel', stock: false };
 
-export default function Catalog({ onOpen }) {
+export function Catalog({ onOpen }) {
   const { left, add } = useStore();
   const [f, setF] = useState(INITIAL);
   const set = (patch) => setF((cur) => ({ ...cur, ...patch }));
