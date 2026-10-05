@@ -1,27 +1,11 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="manga" data-saga="mix">
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
-<title>Gogogo Market — Figuras de anime</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Reggae+One&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
-<script>
-/* Tema inicial antes de pintar: el guardado, o el del sistema (evita el parpadeo claro/oscuro) */
-(function(){
-  var t=null;
-  try{t=JSON.parse(window.localStorage.getItem('gg_theme'))}catch(e){}
-  if(t!=='manga'&&t!=='mangadark'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'mangadark':'manga'}
-  document.documentElement.setAttribute('data-theme',t);
-  var s=null;
-  try{s=JSON.parse(window.localStorage.getItem('gg_saga'))}catch(e){}
-  if(s==='ragnarok'||s==='jojo'||s==='mix'){document.documentElement.setAttribute('data-saga',s)}
-})();
-</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
-<body id="top" class="bg-base-100 text-base-content font-body text-base leading-normal">
-<div id="root"></div>
-<script type="module" src="/src/main.jsx"></script>
+<body>
+    
 </body>
 </html>
