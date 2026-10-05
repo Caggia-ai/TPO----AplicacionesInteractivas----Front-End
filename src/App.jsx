@@ -18,7 +18,7 @@ import { redirect } from './lib/nav.js';
 
 const RETURN_KEYS = ['status', 'collection_status', 'payment_id', 'collection_id'];
 
-export default function App() {
+export function App() {
   const { add, cart, finalize } = useStore();
   const [productId, setProductId] = useState(null);                                  // figura abierta en el detalle
   const [checkout, setCheckout] = useState({ open: false, view: 'cart', order: null }); // ventana del carrito
