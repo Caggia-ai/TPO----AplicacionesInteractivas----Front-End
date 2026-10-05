@@ -1,7 +1,7 @@
 /* Gráfico hexagonal con los seis parámetros de la figura (notas de la A a la E), como los stands de JoJo. */
 import { GRADES, STAT_NAMES } from '../lib/format.js';
 
-export default function Radar({ stats }) {
+export function Radar({ stats }) {
   const cx = 190, cy = 134, R = 80, n = 6;
   const pt = (i, r) => {
     const a = -Math.PI / 2 + (i * Math.PI * 2) / n;
