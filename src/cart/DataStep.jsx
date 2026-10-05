@@ -20,7 +20,7 @@ export function validate(v) {
   return errs;
 }
 
-export default function DataStep({ initial, onClose, onBack, onNext }) {
+export function DataStep({ initial, onClose, onBack, onNext }) {
   const [v, setV] = useState({ name: '', email: '', addr: '', city: '', ...initial });
   const [errs, setErrs] = useState({});
   const refs = useRef({});
