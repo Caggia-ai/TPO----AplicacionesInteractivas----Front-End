@@ -6,7 +6,7 @@ import { createPortal } from 'react-dom';
 import { useStore } from '../context/StoreContext.jsx';
 import { useTopLayerHost } from './Modal.jsx';
 
-export default function Toast() {
+export function Toast() {
   const { toast } = useStore();
   const dialog = useTopLayerHost();
   const bottom = dialog ? '5.5rem' : '1rem';   // 5.5rem = alto de la barra de botones fija + aire
