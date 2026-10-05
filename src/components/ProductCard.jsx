@@ -2,7 +2,7 @@
 import FigureArt from './FigureArt.jsx';
 import { fmt, SAGAS } from '../lib/format.js';
 
-export default function ProductCard({ product: p, left, onOpen, onAdd }) {
+export function ProductCard({ product: p, left, onOpen, onAdd }) {
   return (
     <article className="card card-compact shot bg-base-100">
       <figure className="block">
