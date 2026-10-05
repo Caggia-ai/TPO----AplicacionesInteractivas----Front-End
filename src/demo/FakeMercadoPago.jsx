@@ -4,7 +4,7 @@ import Modal from '../components/Modal.jsx';
 import { fmt } from '../lib/format.js';
 import { getDemoOrder, settleDemoMP } from './demoServer.js';
 
-export default function FakeMercadoPago({ orderRef, onFinish, onDismiss }) {
+export function FakeMercadoPago({ orderRef, onFinish, onDismiss }) {
   const order = orderRef ? getDemoOrder(orderRef) : null;
   const finish = (outcome) => onFinish(settleDemoMP(orderRef, outcome));
 
