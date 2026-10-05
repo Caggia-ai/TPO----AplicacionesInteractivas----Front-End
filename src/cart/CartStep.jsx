@@ -19,7 +19,7 @@ export function EmptyCart({ onClose, onGoShop }) {
   );
 }
 
-export default function CartStep({ onClose, onNext }) {
+export function CartStep({ onClose, onNext }) {
   const { lines, subtotal, changeQty, removeItem, left } = useStore();
   const faltan = Math.max(0, FREE_FROM - subtotal);
 
