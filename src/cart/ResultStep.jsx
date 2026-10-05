@@ -11,7 +11,7 @@ function OrderLine({ order }) {
   );
 }
 
-export default function ResultStep({ view, order, canRetry, onClose, onRetry }) {
+export function ResultStep({ view, order, canRetry, onClose, onRetry }) {
   if (view === 'ok') {
     return (
       <>
