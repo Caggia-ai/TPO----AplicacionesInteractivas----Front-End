@@ -5,9 +5,11 @@ import { StoreProvider } from './context/StoreContext.jsx';
 import './index.css';
 
 createRoot(document.getElementById('root')).render(
+ <BrowserRouter>
   <StrictMode>
     <StoreProvider>
       <App />
     </StoreProvider>
-  </StrictMode>,
+  </StrictMode>
+</BrowserRouter>,
 );
